@@ -9,7 +9,7 @@ int SQUT(INT a)
 {
 	return ((int)ceil( sqrt(a)));
 }
-extern SEQARR ABC[MAX];
+SEQARR ABC[MAX];
 
 
 bool IsPrime(INT a)
@@ -186,8 +186,10 @@ INT TotalPossibility(int *p,int ty)
 
 void T_thPermutation(INT t,SEQPTR str,int n, int r)
 {
-	if(r==0 || t==0 || n==0)
-		return;
+	if(r==1 ) {
+          str[0] = str[t];
+          return;
+        }
 	int q,re,d;
 	d= nPr(n-1,r-1);
 	q=t/d;
@@ -197,6 +199,16 @@ void T_thPermutation(INT t,SEQPTR str,int n, int r)
 		str[j] =str[j-1];
 	str[0] = C;
 	T_thPermutation(re,str+1,n-1,r-1);
+}
+
+ERR Permutation(INT t,SEQPTR st,int n, int r)
+{
+	if (r>n || t> nPr(n,r))
+		return (-1);
+	cpy(st,ABC,n);
+	T_thPermutation(t,st,n,r);
+	*(st+r)=0;
+	return 0;
 }
 
 void T_thCombination(INT t,SEQPTR str,SEQPTR ret, int n, int r)
@@ -216,16 +228,6 @@ void T_thCombination(INT t,SEQPTR str,SEQPTR ret, int n, int r)
 	}
 }
 
-
-ERR Permutation(INT t,SEQPTR st,int n, int r)
-{
-	if (r>n || t> nPr(n,r))
-		return (-1);
-	cpy(st,ABC,n);
-	T_thPermutation(t,st,n,r);
-	*(st+r)=0;
-	return 0;
-}
 
 ERR Combination(INT t,SEQPTR st,int n, int r)
 {

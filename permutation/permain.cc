@@ -1,6 +1,6 @@
 # include "permain.h"
 
-SEQARR ABC[MAX];
+extern SEQARR ABC[MAX];
 
 void DisplayPrimeFactor(ARRAY f,ARRAY p,int n)
 {
@@ -23,16 +23,16 @@ void PrintDis(SEQPTR p,int n)
 	std::cout << a << " Gets " << p[i] << std:: endl;
 }
 
-int main()
+int main0()
 {
 	void main6();
 	initseq(0);
-	// main1();
+	main1();
 	// main2();
 	// main3();
 	// main4();
 	// main5();
-	main6();
+	// main6();
 	return 0;
 }
 
@@ -121,7 +121,7 @@ void main1 ()
 		pagebk(i);
 	}
 	std::cout << "Total Permutations are " << npr <<std::endl;
-	for(i=0;i<ncr;i++)
+/*	for(i=0;i<ncr;i++)
 	{
 		Combination(i,str,n,r);
 		print(str,r);
@@ -146,6 +146,7 @@ void main1 ()
 	}
 	delete(ret);
 	std::cout<< "Total Sub Sets are " << i << std::endl;
+*/
 }
 void main2()
 {
